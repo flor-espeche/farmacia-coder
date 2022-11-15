@@ -1,37 +1,41 @@
+const productos = [
+    {id: 1, nombre: "Boss", precio: 3600, descripcion: "Femme Intense Edp x90 ml"},
+    {id: 2, nombre: "Revlon", precio: 750, descripcion: "Pintura de uñas"},
+    {id: 3, nombre: "Maybelline", precio: 3520, descripcion: "Mascara de pestañas"},
+    {id: 4, nombre: "Dermaglos", precio: 1863, descripcion: "Leche de limpieza facial"},
+    {id: 5, nombre: "Dermaglos", precio: 2500, descripcion: "Crema corporal"},
+    {id: 6, nombre: "Maybelline", precio: 3000, descripcion: "Delineador de cejas"},
+    {id: 7, nombre: "Colgate", precio: 1000, descripcion: "Pasta de dientes"},
+    {id: 8, nombre: "Gum", precio: 500, descripcion: "Cepillo dental"}
+];
 
-    let cantidad = parseInt(prompt("Cantidad de empleados a ingresar"));
+productos.forEach((producto) =>
+{
+    console.log(producto.nombre)
+});
 
-    // ciclo for para calcular el sueldo de la cantidad de empleados que el usuario ingresa
-    
-    for(let i= 0; i < cantidad; i++ )
-    {
-        let hora = parseInt(prompt("ingrese la cantidad de horas trabajadas del empleado: "));
-        let sueldo = hora * 500;
+let nombre = prompt("ingrese el producto que busca");
+const encontrar = productos.find(i=> i.nombre === nombre);
 
-        // si trabajo mas de 40 horas se incrementa el sueldo en un 15%
+if(encontrar){
+    let mensaje = `
+    id: ${encontrar.id}
+    nombre: ${encontrar.nombre}
+    precio: ${encontrar.precio}
+    descripcion: ${encontrar.descripcion}`;
+    alert(mensaje);
+}
+else{alert("Producto no disponible")}
 
-        if(hora>40)
-        {
-            let sueldoTotal = sueldo + (sueldo * 1.5);
-            let mensaje = `El sueldo del trabajador ${i} es: ${sueldoTotal}`;
-            alert(mensaje);
-        }
-        else
-        {
-            let mensaje2 = `El sueldo del trabajador ${i} es: ${sueldo}`;
-            alert(mensaje2);
-        }
-    }
 
-    //calcular el precio total de un producto con iva
-
-    function calcularIva(precio){
-        return (precio + (precio * 1.21));
-    }
-
-   
-    let precioAlgodon= calcularIva(100);
-    console.log(precioAlgodon);
+const modificarPrecio = productos.map (item => {
+    return{
+        nombre: item.nombre,
+        precio: item.precio + 100,
+        descripcion: item.descripcion
+    };
+});
+console.log(modificarPrecio);
 
 
 
