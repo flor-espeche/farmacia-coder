@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.titulo-principal{
+ background-color: #2e97b7;
+ color: beige;
+ padding: 20px;
+}
+
+.categorias{
+    background-color: #32b9be;
+    color: beige;
+    border-radius: 30px;
+    margin-top: 10px;
+}
+
+.categoria-boton{
+    width: 90%;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    border-style: none;
+    color: #32b9be;
+}
+
+.categoria-boton:hover{
+    background-color: #fdf4b0;
+}
+
+.cat-boton-carrito{
+    width: 90%;
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 5px;
+    background-color: white;
+    border-style: none;
+    color: #32b9be;
+
+}
+
+.productos-card{
+    width: 30%;
+}
+
+.productos-card:hover{
+    position: relative;
+    bottom: 5px;
+    left: 5px;
+}
+
+.boton-card{
+    background-color: greenyellow;
+    border-radius: 10px;
+    border-style: none;
+}

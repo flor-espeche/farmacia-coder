@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <title>Farmacia</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container">
+              <a class="navbar-brand" href="#">
+                <img src="./img/istockphoto-1275720974-612x612.jpg" alt="Bootstrap" width="50" height="40">
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto">
+                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  <a class="nav-link" href="#">Categorias</a>
+                  <a class="nav-link" href="#">Contacto</a>
+                  <a class="nav-link disabled">¿Quienes somos?</a>
+                </div>
+              </div>
+            </div>
+          </nav>
+
+    </header>
+    <main>
+        <div class="titulo-principal text-center">
+            <h1>Farmacia online</h1>
+        </div>
+
+        <section class=" container d-flex">
+
+          <aside class="categorias col-sm-1 col-md-3 text-center">
+          <h2 class="m-4">Categorias</h2>
+
+          <button class="categoria-boton fw-bold">Maquillaje </button> 
+          <button class="categoria-boton fw-bold">Perfumeria </button> 
+          <button class="categoria-boton fw-bold">Cuidado facial </button> 
+          <button class="categoria-boton fw-bold">Cuidado corporal </button> 
+          <button class="categoria-boton fw-bold"> Bebes</button> 
+
+         
+          <a href="./carrito.html">
+            <button class="cat-boton-carrito fw-bold"> <i class="bi bi-cart-fill"></i> Carrito <span>0</span></button>
+          </a>
+        </aside>
+
+        <section class="col-sm-1 col-md-9 text-center">
+          <h2 class="m-3"> Todos los productos</h2>
+          <section>
+            <div  class="d-flex flex-wrap justify-content-around">
+            <div class="productos-card card  m-2 shadow">
+              <img src="img/perfumehugo.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Boss</h5>
+                <p class="card-text">Femme Intense Edp x90 ml</p>
+                <p class="fw-bold">$3600</p>
+                <a href="#"> <button class="boton-card w-100 p-2">Agregar</button> </a>
+              </div>
+            </div>
+            <div class="productos-card card  m-2 shadow">
+              <img src="img/pinturarevlon.webp" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Revlon</h5>
+                <p class="card-text">Pintura de uñas</p>
+                <p class="fw-bold">$750</p>
+                <a href="#" class="boton-card btn  w-75">Agregar</a>
+              </div>
+            </div>
+            <div class="productos-card card  m-2 shadow">
+              <img src="img/Maybelline-Waterproof_img1.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Mascara de pestañas</p>
+                <p class="fw-bold">$3520</p>
+                <a href="#" class="boton-card btn  w-75">Agregar</a>
+              </div>
+            </div>
+            <div class="productos-card card  m-2 shadow">
+              <img src="img/Dermaglos.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Dermaglós</h5>
+                <p class="card-text">Leche de limpieza facial</p>
+                <p class="fw-bold">$1863</p>
+                <a href="#" class=" btn  w-75 boton-card">Agregar</a>
+              </div>
+            </div>
+          </div>
+          </section>
+          
+        </section>
+        </section>
+
+        
+        
+    </main>
+    <footer class="text-center p-3 bg-light text-dark mt-3">
+<p>&copy; Todos los derechos reservados</p>
+    </footer>
+    <script src="/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+
+</body>
+</html>
