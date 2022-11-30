@@ -41,11 +41,12 @@
           <aside class="categorias col-sm-1 col-md-3 text-center">
           <h2 class="m-4">Categorias</h2>
 
-          <button class="categoria-boton fw-bold">Maquillaje </button> 
-          <button class="categoria-boton fw-bold">Perfumeria </button> 
-          <button class="categoria-boton fw-bold">Cuidado facial </button> 
-          <button class="categoria-boton fw-bold">Cuidado corporal </button> 
-          <button class="categoria-boton fw-bold"> Bebes</button> 
+          <button id="todos" class="categoria-boton fw-bold">Todos los productos </button> 
+          <button id="maquillaje" class="categoria-boton fw-bold">Maquillaje </button> 
+          <button id="perfumeria" class="categoria-boton fw-bold">Perfumeria </button> 
+          <button id="cuidadoFacial" class="categoria-boton fw-bold">Cuidado facial </button> 
+          <button id="cuidadoCorporal" class="categoria-boton fw-bold">Cuidado corporal </button> 
+          <button id="bebes" class="categoria-boton fw-bold"> Bebes</button> 
 
          
           <a href="./carrito.html">
@@ -53,46 +54,12 @@
           </a>
         </aside>
 
-        <section class="col-sm-1 col-md-9 text-center">
+        <section  class="col-sm-1 col-md-9 text-center">
           <h2 class="m-3"> Todos los productos</h2>
           <section>
-            <div  class="d-flex flex-wrap justify-content-around">
-            <div class="productos-card card  m-2 shadow">
-              <img src="img/perfumehugo.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Boss</h5>
-                <p class="card-text">Femme Intense Edp x90 ml</p>
-                <p class="fw-bold">$3600</p>
-                <a href="#"> <button class="boton-card w-100 p-2">Agregar</button> </a>
-              </div>
-            </div>
-            <div class="productos-card card  m-2 shadow">
-              <img src="img/pinturarevlon.webp" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Revlon</h5>
-                <p class="card-text">Pintura de uñas</p>
-                <p class="fw-bold">$750</p>
-                <a href="#" class="boton-card btn  w-75">Agregar</a>
-              </div>
-            </div>
-            <div class="productos-card card  m-2 shadow">
-              <img src="img/Maybelline-Waterproof_img1.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Mascara de pestañas</p>
-                <p class="fw-bold">$3520</p>
-                <a href="#" class="boton-card btn  w-75">Agregar</a>
-              </div>
-            </div>
-            <div class="productos-card card  m-2 shadow">
-              <img src="img/Dermaglos.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Dermaglós</h5>
-                <p class="card-text">Leche de limpieza facial</p>
-                <p class="fw-bold">$1863</p>
-                <a href="#" class=" btn  w-75 boton-card">Agregar</a>
-              </div>
-            </div>
+            <div id="contenedorProductos" class="d-flex flex-wrap justify-content-around">
+            <div class="productos-card">
+              
           </div>
           </section>
           
@@ -105,7 +72,7 @@
     <footer class="text-center p-3 bg-light text-dark mt-3">
 <p>&copy; Todos los derechos reservados</p>
     </footer>
-    <script src="/index.js"></script>
+    <script src="./index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
 
