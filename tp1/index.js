@@ -64,8 +64,13 @@ const productos = [
         descripcion: "Cepillo dental"}
 ];
 
+localStorage.setItem("productos",  JSON.stringify(productos));
+const productoLS = JSON.parse(localStorage.getItem("productos"));
+console.log(productoLS);
+
 const contenedorProductos = document.getElementById("contenedorProductos");
 const botonesCategoria = document.querySelectorAll(".categoria-boton");
+const tituloPrincipal = document.getElementById("tituloPrincipal");
 
 function cargarProductos (productosTodos) {
 
@@ -100,6 +105,7 @@ botonesCategoria.forEach(boton => {
         cargarProductos(botonCategoria); 
         }
         else{
+            tituloPrincipal.innerText = "Todos los productos";
             cargarProductos(productos);
         }
     })
