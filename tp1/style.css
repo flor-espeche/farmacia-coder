@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+a{
+    cursor: pointer;
+}
+
 
 .titulo-principal{
  background-color: #2e97b7;
@@ -56,4 +60,19 @@
     background-color: greenyellow;
     border-radius: 10px;
     border-style: none;
+}
+
+.modal-contenedor{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.img-carrito{
+    width: 200px;
+    padding: 20px;
+}
+
+.modal-content{
+    background-color: beige;
 }

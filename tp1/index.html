@@ -49,8 +49,8 @@
           <button id="bebes" class="categoria-boton fw-bold"> Bebes</button> 
 
          
-          <a href="./carrito.html">
-            <button class="cat-boton-carrito fw-bold"> <i class="bi bi-cart-fill"></i> Carrito <span>0</span></button>
+          <a href="" data-bs-toggle="modal" data-bs-target="#modal">
+            <button class="cat-boton-carrito fw-bold"> <i class="bi bi-cart-fill"></i> Carrito <span  id="carritoContenedor">0</span></button>
           </a>
         </aside>
 
@@ -65,6 +65,32 @@
           
         </section>
         </section>
+
+        <div>
+          <div class="modal" tabindex="-1" id="modal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Carrito</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="vaciarCarrito">Vaciar carrito</button>
+                  <button type="button" class="btn btn-primary">Finalizar compra</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                  <span>Precio total:</span>
+                  <p class="text-center" id="precioTotal"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        
 
         
         

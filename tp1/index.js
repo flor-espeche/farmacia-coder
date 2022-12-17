@@ -5,6 +5,7 @@ const productos = [
         img: "./img/perfumehugo.png", 
         categoria: { nombre: "bossPerfume" , id: "perfumeria" }, 
         precio: 3600, 
+        cantidad: 1,
         descripcion: "Femme Intense Edp x90 ml"},
 
     {
@@ -13,6 +14,7 @@ const productos = [
         img: "./img/pinturarevlon.webp", 
         categoria: { nombre: "revlonMaquillaje" , id: "maquillaje" }, 
         precio: 750, 
+        cantidad: 1,
         descripcion: "Pintura de uñas"},
 
     {
@@ -21,6 +23,7 @@ const productos = [
         img: "./img/Maybelline-Waterproof_img1.png", 
         categoria: { nombre: "mascaraMaquillaje" , id: "maquillaje" }, 
         precio: 3520, 
+        cantidad: 1,
         descripcion: "Mascara de pestañas"},
 
     {
@@ -29,6 +32,7 @@ const productos = [
         img: "./img/Dermaglos.png", 
         categoria: { nombre: "lecheCuidadoFacial" , id: "cuidadoFacial" }, 
         precio: 1863, 
+        cantidad: 1,
         descripcion: "Leche de limpieza facial"},
 
     {
@@ -37,6 +41,7 @@ const productos = [
         img: "./img/Dermaglos-Corporal.png", 
         categoria: { nombre: "cremaCuidadoCorporal" , id: "cuidadoCorporal" }, 
         precio: 2500, 
+        cantidad: 1,
         descripcion: "Crema corporal"},
 
     {
@@ -45,6 +50,7 @@ const productos = [
         img: "./img/delineadorcejas.jpg", 
         categoria: { nombre: "delineadorMaquillaje" , id: "maquillaje" }, 
         precio: 3000, 
+        cantidad: 1,
         descripcion: "Delineador de cejas"},
 
     {
@@ -53,6 +59,7 @@ const productos = [
         img: "./img/pastadedients.png", 
         categoria: { nombre: "pastaCuidadoFacial" , id: "cuidadoFacial" }, 
         precio: 1000, 
+        cantidad: 1,
         descripcion: "Pasta de dientes"},
 
     {
@@ -61,16 +68,27 @@ const productos = [
         img: "./img/Gum-Cepillo.png", 
         categoria: { nombre: "cepilloCuidadoFacial" , id: "cuidadoFacial" }, 
         precio: 500, 
+        cantidad: 1,
         descripcion: "Cepillo dental"}
 ];
 
-localStorage.setItem("productos",  JSON.stringify(productos));
-const productoLS = JSON.parse(localStorage.getItem("productos"));
-console.log(productoLS);
+
+let carrito = [];
+
+document.addEventListener("DOMContentLoaded", ()=> {
+    carrito = JSON.parse(localStorage.getItem("carrito"))  || [];
+    mostrarCarrito();
+})
 
 const contenedorProductos = document.getElementById("contenedorProductos");
 const botonesCategoria = document.querySelectorAll(".categoria-boton");
 const tituloPrincipal = document.getElementById("tituloPrincipal");
+const carritoContenedor = document.getElementById("carritoContenedor");
+const vaciarCarrito = document.getElementById("vaciarCarrito");
+const precioTotal = document.getElementById("precioTotal");
+
+
+
 
 function cargarProductos (productosTodos) {
 
@@ -78,16 +96,17 @@ function cargarProductos (productosTodos) {
 
     productosTodos.forEach(producto => {
 
+        const {id, nombre, img, categoria, precio, cantidad, descripcion} = producto;
         const div=document.createElement("div");
         div.classList.add("productos-card");
         div.innerHTML = `
         <div class="card  m-2 shadow">
-        <img src="${producto.img}" class="card-img-top" alt="${producto.nombre}">
+        <img src="${img}" class="card-img-top" alt="${nombre}">
               <div class="card-body">
-                <h5 class="card-title">${producto.nombre}</h5>
-                <p class="card-text">${producto.descripcion}</p>
-                <p class="fw-bold">$${producto.precio}</p>
-                <a href="#"> <button class="boton-card w-100 p-2" id="${producto.id}">Agregar</button> </a>
+                <h5 class="card-title">${nombre}</h5>
+                <p class="card-text">${descripcion}</p>
+                <p class="fw-bold">$${precio}</p>
+                <a href="#"> <button class="boton-card w-100 p-2" onclick="agregarProducto(${id})">Agregar</button> </a>
               </div>
               </div>
         `;
@@ -110,3 +129,57 @@ botonesCategoria.forEach(boton => {
         }
     })
 })
+
+function agregarProducto(id){
+    const item = productos.find((prod) => prod.id === id)
+    carrito.push(item);
+    mostrarCarrito();
+}
+
+const mostrarCarrito = () => {
+    const modalBody = document.querySelector(".modal .modal-body");
+    modalBody.innerHTML="";
+    carrito.forEach((prod) => {
+        const {id, nombre, img, descripcion, cantidad, precio} = prod;
+        modalBody.innerHTML+= ` 
+        <div class="modal-contenedor">
+          <div>
+            <img class="img-fluid img-carrito" src="${img}" alt="">
+          </div>
+
+          <div>
+            <p>Producto: ${nombre}</p>
+            <p>Precio: $${precio}</p>
+            <p>Cantidad: ${cantidad}</p>
+
+            <button onclick="eliminarProducto(${id})" class="btn btn-danger">Eliminar</button>
+          </div>
+        </div>
+        `
+    })
+
+    if(carrito.length === 0){
+        modalBody.innerHTML=`
+        <p class="text-center">¡Aun no agregaste nada!</p>
+        `
+    }
+
+    carritoContenedor.textContent = carrito.length;
+    precioTotal.innerText = carrito.reduce((acu, prod) => acu + prod.cantidad * prod.precio, 0);
+    guardarStorage();
+}
+
+vaciarCarrito.addEventListener("click", () => {
+    carrito.length = [];
+    mostrarCarrito();
+})
+
+function eliminarProducto(id) {
+    const eliminarId = id;
+    carrito = carrito.filter((eliminar) => eliminar.id !== eliminarId);
+    mostrarCarrito();
+}
+
+function guardarStorage(){
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+}
