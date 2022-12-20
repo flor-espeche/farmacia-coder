@@ -86,6 +86,7 @@ const tituloPrincipal = document.getElementById("tituloPrincipal");
 const carritoContenedor = document.getElementById("carritoContenedor");
 const vaciarCarrito = document.getElementById("vaciarCarrito");
 const precioTotal = document.getElementById("precioTotal");
+const finalizarCompra = document.getElementById("finalizarCompra")
 
 
 
@@ -127,12 +128,49 @@ botonesCategoria.forEach(boton => {
             tituloPrincipal.innerText = "Todos los productos";
             cargarProductos(productos);
         }
+
+        switch (e.currentTarget.id) {
+            case "Todos":
+                tituloPrincipal.innerText = "Todos los productos";
+              break;
+            case "maquillaje":
+                tituloPrincipal.innerText = "Maquillaje";
+              break;
+            case "perfumeria":
+                tituloPrincipal.innerText = "Perfumeria";
+              break;
+            case "cuidadoFacial":
+                tituloPrincipal.innerText = "Cuidado facial";
+              break;
+            case "cuidadoCorporal":
+                tituloPrincipal.innerText = "Cuidado corporal";
+              break;
+            case "bebes":
+                tituloPrincipal.innerText = "Bebes";
+              break;
+            default:
+              
+              break;
+          }
+        
     })
 })
 
 function agregarProducto(id){
+
+    const existe = carrito.some(prod => prod.id === id)
+
+    if(existe){
+        const prod = carrito.map(prod => {
+            if(prod.id === id){
+                prod.cantidad++
+            }
+        })
+    } else {
     const item = productos.find((prod) => prod.id === id)
     carrito.push(item);
+    }
+    
     mostrarCarrito();
 }
 
@@ -183,3 +221,16 @@ function eliminarProducto(id) {
 function guardarStorage(){
     localStorage.setItem("carrito", JSON.stringify(carrito));
 }
+finalizarCompra.addEventListener("click", () => {
+    if(carrito.length === 0){
+        console.log("hola");
+        swal({
+            title: "¡Tu carrito está vacio!",
+            text: "Compra algo para continuar la compra",
+            icon: "error",
+            confirmbuttonText: "Aceptar",
+          });
+    } else {
+
+    }
+})
